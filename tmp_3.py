@@ -1,7 +1,6 @@
 
 id_file             = '/Users/songweizhi/Desktop/gapseq/pwy_ids.txt'
 combined_db_file    = '/Users/songweizhi/Desktop/gapseq/combined_pwy.tbl'
-
 interested_pwys_txt = '/Users/songweizhi/Desktop/gapseq/interested_pwys.txt'
 
 
