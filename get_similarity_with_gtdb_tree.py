@@ -29,7 +29,7 @@ def boxplot_with_dots(num_lol, name_list, output_plot):
 
 marker_txt                    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/Matrix_distance_Willis_subset_4_marker_id_48.tsv'
 similarity_with_gtdb_tree_txt = '/Users/songweizhi/Desktop/Matrix_similarity_reformatted.txt'
-output_plot                   = '/Users/songweizhi/Desktop/boxplot_with_dots.png'
+output_plot                   = '/Users/songweizhi/Desktop/similarity_with_gtdb_tree_boxplot_with_dots.png'
 
 
 # read in similarities

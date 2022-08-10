@@ -68,16 +68,28 @@ def concatenated_msa(msa_file_list, msa_file_dir, concatenated_msa_file, concate
 ########################################################################################################################
 
 # file in
-marker_txt                    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/Matrix_distance_Willis_subset_4_marker_id_48.tsv'
+marker_txt                    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/Matrix_distance_Willis_subset_2_marker_id_89.tsv'
 marker_seq_dir                = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/OrthologousGroupsFasta_cov_85_no_empty_line'
 
 # file out
-wd                            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/marker_48'
-aln_dir                       = '%s/marker_48_alignment_dir'                          % wd
-concatenated_msa_file         = '%s/marker_48_concatenated.aln'                       % wd
-concatenated_msa_loci_file    = '%s/marker_48_concatenated_loci.txt'                  % wd
-concatenated_msa_file_trimmed = '%s/marker_48_concatenated_trimmed.aln'               % wd
+wd                            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers/marker_89'
+aln_dir                       = '%s/marker_89_alignment_dir'                          % wd
+concatenated_msa_file         = '%s/marker_89_concatenated.aln'                       % wd
+concatenated_msa_loci_file    = '%s/marker_89_concatenated_loci.txt'                  % wd
+concatenated_msa_file_trimmed = '%s/marker_89_concatenated_trimmed.aln'               % wd
 
+########################################################################################################################
+
+# file in
+marker_txt                    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Yang_70_markers/62_markers.txt'
+marker_seq_dir                = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Yang_70_markers/Yang_70_Markers'
+
+# file out
+wd                            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Yang_70_markers/62_markers'
+aln_dir                       = '%s/Yang_62_marker_alignment_dir'                          % wd
+concatenated_msa_file         = '%s/Yang_62_marker_concatenated.aln'                       % wd
+concatenated_msa_loci_file    = '%s/Yang_62_marker_concatenated_loci.txt'                  % wd
+concatenated_msa_file_trimmed = '%s/Yang_62_marker_concatenated_trimmed.aln'               % wd
 
 ########################################################################################################################
 
@@ -116,7 +128,6 @@ for each_marker in marker_list:
     trimal_cmd = 'trimal -in %s -out %s -gappyout -keepheader -fasta' % (pwd_marker_aln, pwd_marker_aln_trimmed)
     print(trimal_cmd)
     os.system(trimal_cmd)
-
 
 # concatenate alignment
 print('concatenating MSAs')
