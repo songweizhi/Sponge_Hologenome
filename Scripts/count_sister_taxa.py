@@ -259,27 +259,27 @@ def count_sister_taxa(args):
         total_num_clades = numpy.sum(clades_per_group[label])
         sorted_sisters = sorted(summary[label].items(), key=itemgetter(1), reverse=True)
 
-        if label == 'g__TA-20':
-            print('ML_groups[label]:\t%s'               % ML_groups[label])
-            print('clades_per_group[label]:\t%s'        % clades_per_group[label])
-            print('avg_num_clades (mean of list):\t%s'  % numpy.mean(clades_per_group[label]))
-            print('total_num_clades (sum of list):\t%s' % total_num_clades)
-            print('summary[label]:\t%s'                 % summary[label])
-            print('sorted_sisters\t%s'                  % sorted_sisters)
+        # if label == 'g__TA-20':
+        #     print('ML_groups[label]:\t%s'               % ML_groups[label])
+        #     print('clades_per_group[label]:\t%s'        % clades_per_group[label])
+        #     print('avg_num_clades (mean of list):\t%s'  % numpy.mean(clades_per_group[label]))
+        #     print('total_num_clades (sum of list):\t%s' % total_num_clades)
+        #     print('summary[label]:\t%s'                 % summary[label])
+        #     print('sorted_sisters\t%s'                  % sorted_sisters)
 
         for tup in sorted_sisters:
             double_normalize = float(tup[1]) / float(total_num_clades)  # normalize the frequencies by the total number of clades, to account for different bootstrap numbers/MCMC sample numbers
             double_normalize = float("{0:.4f}".format(double_normalize))
 
-            str_to_write = '%s\t%s\t%s\t%s\t%s\t%s\t' % (label,                            # col 1
-                                                         tup[0],                           # col 2
-                                                         float("{0:.4f}".format(tup[1])),  # col 3
-                                                         avg_num_clades,                   # col 4
-                                                         double_normalize,                 # col 5
-                                                         size_str)                         # col 6
+            str_to_write = '%s\t%s\t%s\t%s\t%s\t%s' % (label,                            # col 1
+                                                       tup[0],                           # col 2
+                                                       float("{0:.4f}".format(tup[1])),  # col 3
+                                                       avg_num_clades,                   # col 4
+                                                       double_normalize,                 # col 5
+                                                       size_str)                         # col 6
             outh.write(str_to_write + '\n')
-            if label == 'g__TA-20':
-                print(str_to_write)
+            # if label == 'g__TA-20':
+            #     print(str_to_write)
     outh.close()
 
 
