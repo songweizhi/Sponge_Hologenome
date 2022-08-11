@@ -1,5 +1,4 @@
 import os
-import glob
 from ete3 import Tree
 
 
@@ -79,13 +78,12 @@ genes_to_remove_txt_handle.close()
 
 
 # run TaxaCountStats.R
-TaxaCountStats_R_cmd = 'Rscript %s -t %s -l %s -g %s -x %s -s %s -r %s -o %s' % (TaxaCountStats_Rscript,
-                                                                                 combined_contree_file,
-                                                                                 list_of_trees_txt,
-                                                                                 mapping_txt,
-                                                                                 marker_list_txt,
-                                                                                 combined_count_sister_taxa_op,
-                                                                                 genes_to_remove_txt,
-                                                                                 TaxaCountStats_op)
-print(TaxaCountStats_R_cmd)
-os.system(TaxaCountStats_R_cmd)
+get_TaxaCountStats_cmd = 'Rscript %s -t %s -l %s -g %s -x %s -s %s -r %s -o %s' % (TaxaCountStats_Rscript,
+                                                                                   combined_contree_file,
+                                                                                   list_of_trees_txt,
+                                                                                   mapping_txt, marker_list_txt,
+                                                                                   combined_count_sister_taxa_op,
+                                                                                   genes_to_remove_txt,
+                                                                                   TaxaCountStats_op)
+print(get_TaxaCountStats_cmd)
+os.system(get_TaxaCountStats_cmd)
