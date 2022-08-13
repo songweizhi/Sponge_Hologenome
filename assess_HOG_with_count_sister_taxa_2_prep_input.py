@@ -2,9 +2,9 @@ import os
 from ete3 import Tree
 
 
-step_1_op_dir                   = '/Users/songweizhi/Desktop/count_sister_taxa_op'
-hog_id_txt                      = '/Users/songweizhi/Desktop/HOG_id.txt'
-TaxaCountStats_wd               = '/Users/songweizhi/Desktop/Input_folder_to_R'
+step_1_op_dir                   = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/count_sister_taxa_op'
+hog_id_txt                      = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/HOG_id.txt'
+TaxaCountStats_wd               = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/TaxaCountStats_wd'
 TaxaCountStats_Rscript          = '/Users/songweizhi/PycharmProjects/Sponge_Hologenome/Scripts/TaxaCountStats.R'
 
 # define input files to R script
@@ -16,6 +16,7 @@ marker_list_txt                 = '%s/MarkerList.txt'                    % TaxaC
 combined_count_sister_taxa_op   = '%s/combined_count_sister_taxa_op.txt' % TaxaCountStats_wd
 TaxaCountStats_op               = '%s/TaxaCountStats_output.txt'         % TaxaCountStats_wd
 
+os.mkdir(TaxaCountStats_wd)
 
 # get sorted hog list
 hog_list = []
@@ -48,7 +49,6 @@ for each_hog in hog_list_sorted:
     t_in = Tree(pwd_renamed_contree_file, format=1)
     for leaf in t_in:
         leaf_name_split = leaf.name.split('|')
-        print(leaf_name_split)
         cluster_to_domain_dict[leaf_name_split[0]] = leaf_name_split[1]
 
     # write out to marker_list_txt
