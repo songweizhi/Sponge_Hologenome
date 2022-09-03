@@ -11,7 +11,6 @@ description = '''  '''
 
 ########################################################################################################################
 
-wd = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/4_Archaeal_tree'
 wd = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/4_Archaeal_tree_50_5'
 
 # file in

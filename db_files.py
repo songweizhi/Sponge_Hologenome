@@ -44,6 +44,9 @@ genome_metadata_bac120_r207_Mac     = '%s/bac120_metadata_r207.tsv'             
 genome_taxonomy_ar53_r207_Mac       = '%s/ar53_taxonomy.tsv'                    % GTDB_dir_Mac
 genome_taxonomy_bac120_r207_Mac     = '%s/bac120_taxonomy.tsv'                  % GTDB_dir_Mac
 GTDB_genome_paths_r207_Mac          = '%s/genome_paths.tsv'                     % GTDB_dir_Mac
+GTDB_r202_ar122_markers_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/GTDB_r202_ar122_markers.txt'
+GTDB_r207_ar53_markers_txt          = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/GTDB_r207_ar53_markers.txt'
+hmm_profile_metadata_txt            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/hmm_PGAP.tsv'
 
 gtdb_archaeal_gnm_cpl_dict, gtdb_archaeal_gnm_ctm_dict, gtdb_ar_gnm_tax_dict, gtdb_archaeal_gnm_biosample_dict   = gtdb_gnm_metadata_parser(genome_metadata_ar53_r207_Mac)
 gtdb_bacterial_gnm_cpl_dict, gtdb_bacterial_gnm_ctm_dict, gtdb_bacterial_gnm_tax_dict, gtdb_bacterial_gnm_biosample_dict = gtdb_gnm_metadata_parser(genome_metadata_bac120_r207_Mac)
@@ -51,16 +54,24 @@ gtdb_bacterial_gnm_cpl_dict, gtdb_bacterial_gnm_ctm_dict, gtdb_bacterial_gnm_tax
 gtdb_ar_cpl_dict,  gtdb_ar_ctm_dict,  gtdb_ar_tax_dict,  gtdb_ar_biosample_dict  = gtdb_gnm_metadata_parser(genome_metadata_ar53_r207_Mac)
 gtdb_bac_cpl_dict, gtdb_bac_ctm_dict, gtdb_bac_tax_dict, gtdb_bac_biosample_dict = gtdb_gnm_metadata_parser(genome_metadata_bac120_r207_Mac)
 
+GTDB_r202_ar122_marker_set = set()
+for each_r202_marker in open(GTDB_r202_ar122_markers_txt):
+    GTDB_r202_ar122_marker_set.add(each_r202_marker.strip())
+
+GTDB_r207_ar53_marker_set = set()
+for each_r207_marker in open(GTDB_r207_ar53_markers_txt):
+    GTDB_r207_ar53_marker_set.add(each_r207_marker.strip())
 
 ########################################################################################################################
 ###################################################### sponge MAG ######################################################
 ########################################################################################################################
 
-sponge_MAG_host_txt                 = '%s/Sponge_MAGs_1677_host.txt'            % metadata_dir
-manually_added_gnm_to_host_txt      = '%s/manually_added_genome_to_host.csv'    % metadata_dir
-sponge_MAG_CheckM_txt               = '%s/Sponge_MAGs_1677_CheckM.txt'          % metadata_dir
-sponge_MAG_GTDB_archaea             = '%s/Sponge_MAGs_1677.ar53.summary.tsv'    % metadata_dir
-sponge_MAG_GTDB_bacteria            = '%s/Sponge_MAGs_1677.bac120.summary.tsv'  % metadata_dir
+sponge_MAG_host_txt                  = '%s/Sponge_MAGs_1677_host.txt'            % metadata_dir
+manually_added_gnm_to_host_txt       = '%s/manually_added_genome_to_host.csv'    % metadata_dir
+sponge_MAG_CheckM_txt                = '%s/Sponge_MAGs_1677_CheckM.txt'          % metadata_dir
+sponge_MAG_GTDB_archaea              = '%s/Sponge_MAGs_1677.ar53.summary.tsv'    % metadata_dir
+sponge_MAG_GTDB_bacteria             = '%s/Sponge_MAGs_1677.bac120.summary.tsv'  % metadata_dir
+Archaeal_mags_renamed_for_prokka_txt = '%s/Archaeal_mags_renamed_for_prokka.txt' % metadata_dir
 # Sponge_MAG_id_75_5_1299_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/2_MAGs/Sponge_MAGs_75_5_1299_genomes.txt'
 # Sponge_MAG_id_80_5_1171_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/2_MAGs/Sponge_MAGs_80_5_1171_genomes.txt'
 # Sponge_MAG_id_85_5_1059_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/2_MAGs/Sponge_MAGs_85_5_1059_genomes.txt'
@@ -104,6 +115,15 @@ for each_gnm in open(manually_added_gnm_to_host_txt):
     manually_added_gnm_to_host_low_dict[id_mag] = host_low
     manually_added_gnm_to_host_high_dict[id_mag] = host_high
 
+Archaeal_mags_renamed_for_prokka_dict_raw2new = {}
+Archaeal_mags_renamed_for_prokka_dict_new2raw = {}
+for each_renamed_gnm in open(Archaeal_mags_renamed_for_prokka_txt):
+    each_renamed_gnm_split = each_renamed_gnm.strip().split('\t')
+    name_raw = each_renamed_gnm_split[0]
+    name_new = each_renamed_gnm_split[1]
+    Archaeal_mags_renamed_for_prokka_dict_raw2new[name_raw] = name_new
+    Archaeal_mags_renamed_for_prokka_dict_new2raw[name_new] = name_raw
+
 ########################################################################################################################
 ######################################################## sponge ########################################################
 ########################################################################################################################
@@ -122,6 +142,7 @@ sponge_g_to_c_dict = {}
 sponge_g_to_sc_dict = {}
 sponge_g_to_o_dict = {}
 sponge_g_to_f_dict = {}
+sponge_g_to_full_lineage_dict = {}
 for each in open(sponge_full_taxon_txt):
     each_split = each.strip().split(';')
     sponge_c = ''
@@ -144,6 +165,7 @@ for each in open(sponge_full_taxon_txt):
     sponge_g_to_sc_dict[sponge_g] = sponge_sc
     sponge_g_to_o_dict[sponge_g] = sponge_o
     sponge_g_to_f_dict[sponge_g] = sponge_f
+    sponge_g_to_full_lineage_dict[sponge_g] = each.strip()
 
 ########################################################################################################################
 ########################################################################################################################

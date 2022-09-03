@@ -28,6 +28,17 @@ cmd_file            = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_5
 
 ########################################################################################################################
 
+# file/parameter in
+gnm_folder          = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5_4_Marker_Yang_70/Yang_90_genomes'
+prokka_op_folder    = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5_4_Marker_Yang_70/Yang_90_genomes_Prokka_op'
+gnm_ext             = 'fna'
+gnm_domain          = 'Archaea'
+num_thread          = 12
+
+# output file
+cmd_file            = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5_4_Marker_Yang_70/Yang_90_genomes_Prokka_cmd.txt'
+
+########################################################################################################################
 
 gnm_file_re = '%s/*.%s' % (gnm_folder, gnm_ext)
 gnm_file_list = [os.path.basename(file_name) for file_name in glob.glob(gnm_file_re)]
