@@ -56,16 +56,16 @@ sessionInfo()
 # load packages
 ################################################################################
 
-library("plyr")
-library("dbplyr")
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(data.table)
-library(RColorBrewer)
-library(gplots)
-library(data.table)
-library(ape)
+suppressMessages(library("plyr"))
+suppressMessages(library("dbplyr"))
+suppressMessages(library(dplyr))
+suppressMessages(library(tidyr))
+suppressMessages(library(ggplot2))
+suppressMessages(library(data.table))
+suppressMessages(library(RColorBrewer))
+suppressMessages(library(gplots))
+suppressMessages(library(data.table))
+suppressMessages(library(ape))
 
 ################################################################################
 #1. read in the treefiles (all concatenated in one large document)

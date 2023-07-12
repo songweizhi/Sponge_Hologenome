@@ -1,11 +1,37 @@
+import os
 
-OrthologousGroups_txt                   = '/Users/songweizhi/Desktop/OrthologousGroups.txt'
-pwd_OrthologousGroupsFasta              = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5/Nitrosopumilaceae_OMA_wd/Output/OrthologousGroupsFasta'
-pwd_OrthologousGroupsFasta_qualified    = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5/Nitrosopumilaceae_OMA_wd/Output/OrthologousGroupsFasta_cov_85'
-gnm_num                                 = 300
-cov_cutoff                              = 85
+
+########################################################################################################################
+
+#################### r207 ####################
+
+# OrthologousGroups_txt                   = '/Users/songweizhi/Desktop/OrthologousGroups.txt'
+# pwd_OrthologousGroupsFasta              = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5/Nitrosopumilaceae_OMA_wd/Output/OrthologousGroupsFasta'
+# pwd_OrthologousGroupsFasta_qualified    = '/srv/scratch/z5039045/Sponge_hologenome/2_Archaeal_tree_50_5/Nitrosopumilaceae_OMA_wd/Output/OrthologousGroupsFasta_cov_85'
+# gnm_num                                 = 300
+# cov_cutoff                              = 85
 # cov_cutoff    90  85  80
 # OMA_groups    9   118 307
+
+#################### r214 ####################
+
+# file in
+OrthologousGroups_txt                   = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_OMA_wd_r214/Output/OrthologousGroups.txt'
+pwd_OrthologousGroupsFasta              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_OMA_wd_r214/Output/OrthologousGroupsFasta'
+gnm_num                                 = 375
+cov_cutoff                              = 90
+
+# file out
+pwd_OrthologousGroupsFasta_qualified    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_OMA_wd_r214/Output/OrthologousGroupsFasta_min%s_cov%s' % (gnm_num, cov_cutoff)
+
+# cov_cutoff    90      85      80
+# OMA_groups    12     132     310
+
+########################################################################################################################
+
+if os.path.isdir(pwd_OrthologousGroupsFasta_qualified) is True:
+    os.system('rm -r %s' % pwd_OrthologousGroupsFasta_qualified)
+os.system('mkdir %s' % pwd_OrthologousGroupsFasta_qualified)
 
 
 qualified_grp_num = 0
@@ -37,7 +63,7 @@ for each_group in open(OrthologousGroups_txt):
         fasta_file_id = 'OG%s' % group_id_only_num
         pwd_fasta_file = '%s/OG%s.fa' % (pwd_OrthologousGroupsFasta, group_id_only_num)
         cp_cmd = 'cp %s %s/' % (pwd_fasta_file, pwd_OrthologousGroupsFasta_qualified)
-        #print(cp_cmd)
+        os.system(cp_cmd)
 
         muscle_cmd = 'muscle -in %s.fa -out %s.aln' % (fasta_file_id, fasta_file_id)
         trimal_cmd = 'trimal -in %s.aln -out %s_trimmed.phy -gappyout -keepheader -phylip' % (fasta_file_id, fasta_file_id)

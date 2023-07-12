@@ -107,15 +107,36 @@ def count_sister_taxa_worker(arg_list):
 from db_files import sponge_archaeal_MAG_tax_dict
 from db_files import gtdb_ar_gnm_tax_dict
 
-hog_id_txt                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/HOG_id.txt'
-contree_and_ufboot_dir                  = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/contree_and_ufboot_files'
-count_sister_taxa_py                    = '~/PycharmProjects/Sponge_Hologenome/Scripts/count_sister_taxa.py'
-archaeal_mags_renamed_for_prokka_txt    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/Archaeal_mags_renamed_for_prokka.txt'
-gnm_cluster_txt                         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/genome_clusters_v1.txt'
+hog_id_txt                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/HOG_id.txt'
+contree_and_ufboot_dir                  = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/contree_and_ufboot_files'
+count_sister_taxa_py                    = '/Users/songweizhi/PycharmProjects/Phylogenomics/count_sister_taxa.py'
+archaeal_mags_renamed_for_prokka_txt    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac/Archaeal_mags_renamed_for_prokka.txt'
+gnm_cluster_txt                         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/genome_clusters_v1.txt'
 target_label                            = 'cluster'
 num_threads                             = 10
 
 output_dir                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/count_sister_taxa_op'
+output_dir                              = '/Users/songweizhi/Desktop/777'
+renamed_gnm_to_cluster_dir              = '%s/renamed_genome_to_cluster'            % output_dir
+renamed_gnm_to_cluster_tmp_txt          = '%s/renamed_genome_to_cluster_tmp.txt'    % output_dir
+renamed_gnm_to_cluster_txt              = '%s/renamed_genome_to_cluster.txt'        % output_dir
+renamed_gnm_to_cluster_iTOL_txt         = '%s/renamed_genome_to_cluster_iTOL.txt'   % output_dir
+
+####################################################### Test 2023-07-11 ########################################################
+
+from db_files import sponge_archaeal_MAG_tax_dict
+from db_files import gtdb_ar_gnm_tax_dict
+
+hog_id_txt                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/HOG_id.txt'
+contree_and_ufboot_dir                  = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/contree_and_ufboot_files'
+count_sister_taxa_py                    = '/Users/songweizhi/PycharmProjects/TreeSAK/TreeSAK_Sponge/Sponge_Hologenome/Scripts/count_sister_taxa.py'
+archaeal_mags_renamed_for_prokka_txt    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac/Archaeal_mags_renamed_for_prokka.txt'
+gnm_cluster_txt                         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/genome_clusters_v1.txt'
+target_label                            = 'cluster'
+num_threads                             = 10
+
+output_dir                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/5_Archaeal_tree_50_5_Markers_by_split/count_sister_taxa_op'
+output_dir                              = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/5_Archaeal_tree_50_5_Markers_by_split_wd/count_sister_taxa_op_Test_2023_07_11'
 renamed_gnm_to_cluster_dir              = '%s/renamed_genome_to_cluster'            % output_dir
 renamed_gnm_to_cluster_tmp_txt          = '%s/renamed_genome_to_cluster_tmp.txt'    % output_dir
 renamed_gnm_to_cluster_txt              = '%s/renamed_genome_to_cluster.txt'        % output_dir

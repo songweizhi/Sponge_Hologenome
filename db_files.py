@@ -24,9 +24,10 @@ def gtdb_gnm_metadata_parser(gtdb_genome_metadata):
 
     return genome_to_completeness_dict, genome_to_contamination_dict, genome_to_taxon_dict, genome_to_biosample_dict
 
+
 ########################################################################################################################
 
-metadata_dir    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata'
+metadata_dir    = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac'
 GTDB_dir_Katana = '/srv/scratch/z5039045/DB/GTDB_r207'
 GTDB_dir_Mac    = '/Users/songweizhi/DB/GTDB_r207'
 
@@ -44,9 +45,9 @@ genome_metadata_bac120_r207_Mac     = '%s/bac120_metadata_r207.tsv'             
 genome_taxonomy_ar53_r207_Mac       = '%s/ar53_taxonomy.tsv'                    % GTDB_dir_Mac
 genome_taxonomy_bac120_r207_Mac     = '%s/bac120_taxonomy.tsv'                  % GTDB_dir_Mac
 GTDB_genome_paths_r207_Mac          = '%s/genome_paths.tsv'                     % GTDB_dir_Mac
-GTDB_r202_ar122_markers_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/GTDB_r202_ar122_markers.txt'
-GTDB_r207_ar53_markers_txt          = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/GTDB_r207_ar53_markers.txt'
-hmm_profile_metadata_txt            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_metadata/hmm_PGAP.tsv'
+GTDB_r202_ar122_markers_txt         = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac/GTDB_r202_ar122_markers.txt'
+GTDB_r207_ar53_markers_txt          = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac/GTDB_r207_ar53_markers.txt'
+hmm_profile_metadata_txt            = '/Users/songweizhi/Documents/Research/Sponge_Hologenome/0_backup/0_metadata_mac/hmm_PGAP.tsv'
 
 gtdb_archaeal_gnm_cpl_dict, gtdb_archaeal_gnm_ctm_dict, gtdb_ar_gnm_tax_dict, gtdb_archaeal_gnm_biosample_dict   = gtdb_gnm_metadata_parser(genome_metadata_ar53_r207_Mac)
 gtdb_bacterial_gnm_cpl_dict, gtdb_bacterial_gnm_ctm_dict, gtdb_bacterial_gnm_tax_dict, gtdb_bacterial_gnm_biosample_dict = gtdb_gnm_metadata_parser(genome_metadata_bac120_r207_Mac)
